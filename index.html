@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123b2b"><title>FIRS | Fiberline Instrument Reporting</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="shell">
+<header><div class="brand"><div class="mark">F</div><div><small>FIBERLINE INSTRUMENT DEPARTMENT</small><h1>FIRS</h1><p>Instrument Finding & Replacement Reporting</p></div></div><span class="mode">● PROTOTYPE MODE</span></header>
+<section class="intro"><h2>Maintenance Report</h2><p>Record equipment findings and replacement activities in one submission.</p></section>
+<div id="message" class="message" hidden></div>
+<form id="reportForm">
+<section class="panel"><div class="heading"><h3><b>01</b> Report Information</h3><small>* Required</small></div>
+<label for="reporter">Reporter *</label><input id="reporter" list="employeeList" placeholder="Search employee name" autocomplete="off"><datalist id="employeeList"></datalist>
+<label for="area">Area *</label><select id="area"><option value="">Select area</option></select></section>
+<section><div class="heading"><h3><b>02</b> Equipment Details</h3><small id="equipmentCount">1 equipment</small></div><div id="equipmentContainer"></div>
+<button type="button" class="add" id="addEquipmentButton">＋ Add another equipment</button></section>
+<button class="submit" type="submit">Submit Report <span>→</span></button>
+<p class="note">Prototype only · No data is submitted to the production database.</p></form>
+<footer>FIRS · Fiberline Instrument Department</footer>
+</main>
+<template id="equipmentTemplate"><article class="equipment">
+<div class="equipment-head"><div><strong>Equipment <span class="equipment-index"></span></strong><small class="equipment-type">Select a tag number</small></div><button type="button" class="remove">Remove</button></div>
+<label>Equipment Tag Number *</label><input class="tag" list="" placeholder="Search tag number" autocomplete="off"><datalist class="tag-list"></datalist><small class="description"></small>
+<div class="grid"><div><label>Specific Part *</label><select class="part" disabled><option value="">Select part</option></select></div><div><label>Issue / Problem *</label><select class="issue" disabled><option value="">Select issue</option></select></div></div>
+<label>Report Type *</label><select class="type"><option>Finding</option><option>Replacement</option><option>Both</option></select>
+<div class="replacement" hidden><label>Replacement Status *</label><select class="status"><option value="">Select status</option><option>Completed</option><option>Pending</option></select>
+<div class="grid"><div><label>Old Serial Number</label><input class="old" placeholder="Old serial number"></div><div><label>New Serial Number</label><input class="new" placeholder="New serial number"></div></div></div>
+<label>Remark <small>(Optional)</small></label><textarea class="remark" rows="2" placeholder="Additional information..."></textarea>
+</article></template>
+<script src="js/data.js"></script><script src="js/app.js"></script>
+</body></html>
